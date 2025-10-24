@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure Haven Hotel - Luxury Coastal Retreat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ocean-blue: #2B9FD9;
+  --ocean-light: #5BB8E8;
+  --deep-navy: #0A1929;
+  --navy-mid: #1A365D;
+  --sand-beige: #D4C5B0;
+  --sand-light: #E8DCC8;
+  --muted-gold: #C9A86A;
+  --gold-light: #E4C78E;
+  --white: #FFFFFF;
+  --off-white: #F8F6F3;
+  --text-dark: #1A2332;
+  --text-light: #6B7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--deep-navy);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 25, 41, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--muted-gold) 0%, var(--ocean-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--off-white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ocean-blue), var(--muted-gold));
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--muted-gold);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.language-selector {
+  display: flex;
+  gap: 8px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(201, 168, 106, 0.3);
+}
+
+.language-selector button {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 106, 0.3);
+  color: var(--off-white);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+
+.language-selector button.active {
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  color: var(--deep-navy);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(201, 168, 106, 0.4);
+}
+
+.language-selector button:hover:not(.active) {
+  border-color: var(--muted-gold);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--off-white);
+  cursor: pointer;
+}
+
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  background: linear-gradient(rgba(10, 25, 41, 0.5), rgba(10, 25, 41, 0.3)), url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=90') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, var(--deep-navy), transparent);
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 24px;
+  color: var(--white);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  margin-bottom: 48px;
+  font-weight: 300;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 20px 56px;
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  color: var(--deep-navy);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 32px rgba(201, 168, 106, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 48px rgba(201, 168, 106, 0.6);
+}
+
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.dark-section {
+  background: linear-gradient(135deg, var(--deep-navy) 0%, #0F1F3A 100%);
+}
+
+.light-section {
+  background: linear-gradient(135deg, var(--off-white) 0%, var(--sand-light) 100%);
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1.2;
+}
+
+.dark-section .section-title {
+  color: var(--white);
+}
+
+.light-section .section-title {
+  color: var(--deep-navy);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--muted-gold), var(--ocean-blue), var(--muted-gold), transparent);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  margin-bottom: 80px;
+  font-weight: 400;
+}
+
+.dark-section .section-subtitle {
+  color: var(--sand-light);
+}
+
+.light-section .section-subtitle {
+  color: var(--text-light);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.about-image {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.about-text {
+  font-size: 1.125rem;
+  line-height: 1.9;
+}
+
+.about-text p {
+  margin-bottom: 24px;
+  color: var(--sand-light);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 80px;
+}
+
+.room-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  border: 1px solid rgba(201, 168, 106, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.room-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ocean-blue), var(--muted-gold));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.room-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.room-card:hover::before {
+  opacity: 1;
+}
+
+.room-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.room-card:hover .room-image {
+  transform: scale(1.1);
+}
+
+.room-content {
+  padding: 36px;
+}
+
+.room-content h3 {
+  font-size: 1.65rem;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+.room-content p {
+  font-size: 1rem;
+  color: var(--sand-light);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.room-price {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--ocean-blue), var(--ocean-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.room-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background: transparent;
+  color: var(--muted-gold);
+  text-decoration: none;
+  border: 2px solid var(--muted-gold);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.room-btn:hover {
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  color: var(--deep-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 106, 0.4);
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 48px;
+  margin-top: 80px;
+}
+
+.amenity-item {
+  text-align: center;
+  padding: 40px 24px;
+  transition: all 0.4s ease;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.amenity-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.amenity-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  stroke: var(--ocean-blue);
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(43, 159, 217, 0.3));
+}
+
+.amenity-item:hover .amenity-icon {
+  stroke: var(--muted-gold);
+  transform: scale(1.15) rotateY(360deg);
+}
+
+.amenity-item h4 {
+  font-size: 1.15rem;
+  color: var(--deep-navy);
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 80px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 340px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(43, 159, 217, 0.3), rgba(201, 168, 106, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 16px 56px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.15);
+}
+
+.testimonials {
+  background: linear-gradient(135deg, #1A2C45 0%, var(--navy-mid) 100%);
+  position: relative;
+}
+
+.testimonial-slider {
+  max-width: 900px;
+  margin: 80px auto 0;
+  text-align: center;
+  position: relative;
+  min-height: 300px;
+  padding: 0 20px;
+}
+
+.testimonial-item {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.7s ease;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(201, 168, 106, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.testimonial-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+.testimonial-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 32px;
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.testimonial-text::before {
+  content: '\201C';
+  font-size: 4rem;
+  color: var(--muted-gold);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+.testimonial-author {
+  font-size: 1.15rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active {
+  background: linear-gradient(135deg, var(--ocean-blue), var(--muted-gold));
+  transform: scale(1.3);
+  box-shadow: 0 4px 12px rgba(201, 168, 106, 0.4);
+}
+
+.dot:hover:not(.active) {
+  background: rgba(201, 168, 106, 0.5);
+  transform: scale(1.15);
+}
+
+.booking {
+  background: linear-gradient(135deg, var(--deep-navy) 0%, #0D1F35 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(43, 159, 217, 0.1) 0%, transparent 40%);
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.booking-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.booking-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  padding: 48px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 168, 106, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--muted-gold);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  color: var(--deep-navy);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 24px rgba(201, 168, 106, 0.4);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(201, 168, 106, 0.6);
+}
+
+.contact-info {
+  padding: 48px 32px;
+}
+
+.contact-item {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item h4 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.contact-item p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--sand-light);
+}
+
+.success-message {
+  display: none;
+  background: rgba(201, 168, 106, 0.2);
+  border: 2px solid var(--muted-gold);
+  color: var(--white);
+  padding: 24px;
+  border-radius: 12px;
+  margin-top: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.success-message.show {
+  display: block;
+  animation: fadeInUp 0.6s ease;
+}
+
+footer {
+  background: linear-gradient(135deg, #050D18 0%, var(--deep-navy) 100%);
+  color: var(--white);
+  padding: 80px 0 32px;
+  border-top: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 56px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-light), var(--ocean-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.footer-section h4 {
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--muted-gold);
+  transform: translateX(4px);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+  background: linear-gradient(135deg, var(--ocean-blue), var(--muted-gold));
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(43, 159, 217, 0.4);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 80px 0;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 73px;
+    left: -100%;
+    flex-direction: column;
+    background: rgba(10, 25, 41, 0.98);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    padding: 40px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: left 0.4s ease;
+    gap: 24px;
+    align-items: flex-start;
+    max-height: calc(100vh - 73px);
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .language-selector {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201, 168, 106, 0.3);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-image {
+    height: 400px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-slider {
+    min-height: 360px;
+  }
+
+  .testimonial-item {
+    padding: 36px 24px;
+  }
+
+  .booking-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .room-content {
+    padding: 28px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 1.05rem;
+  }
+
+  .booking-form {
+    padding: 28px 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="#" class="logo">Azure Haven</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-translate="nav_about">About</a></li>
+      <li><a href="#rooms" data-translate="nav_rooms">Rooms</a></li>
+      <li><a href="#amenities" data-translate="nav_amenities">Amenities</a></li>
+      <li><a href="#gallery" data-translate="nav_gallery">Gallery</a></li>
+      <li><a href="#testimonials" data-translate="nav_testimonials">Testimonials</a></li>
+      <li><a href="#booking" data-translate="nav_booking">Booking</a></li>
+      <div class="language-selector">
+        <button onclick="changeLanguage('en')" class="active" id="lang-en">EN</button>
+        <button onclick="changeLanguage('de')" id="lang-de">DE</button>
+        <button onclick="changeLanguage('es')" id="lang-es">ES</button>
+        <button onclick="changeLanguage('bg')" id="lang-bg">BG</button>
+      </div>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 data-translate="hero_title">Experience Tranquility by the Sea</h1>
+    <p data-translate="hero_subtitle">Your luxury escape awaits at Azure Haven Hotel</p>
+    <a href="#booking" class="cta-btn" data-translate="hero_cta">Book Your Stay</a>
+  </div>
+</section>
+
+<section id="about" class="dark-section">
+  <div class="container">
+    <h2 class="section-title" data-translate="about_title">About Azure Haven</h2>
+    <p class="section-subtitle" data-translate="about_subtitle">Where coastal elegance meets Mediterranean warmth</p>
+    <div class="about-content fade-in">
+      <div>
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=90" alt="Hotel Interior" class="about-image">
+      </div>
+      <div class="about-text">
+        <p data-translate="about_text1">Nestled along the pristine coastline, Azure Haven Hotel offers an unparalleled escape where luxury meets the gentle rhythm of the sea. Our commitment to excellence is woven into every detail, from the carefully curated interiors to the personalized service that anticipates your every need.</p>
+        <p data-translate="about_text2">Each space within our hotel is designed to evoke a sense of calm and refinement, blending modern coastal aesthetics with timeless Mediterranean warmth. Whether you are watching the sunrise from your private balcony or unwinding in our world-class spa, every moment at Azure Haven is crafted to rejuvenate your spirit.</p>
+        <p data-translate="about_text3">Our dedicated team ensures that your stay transcends expectations, offering bespoke experiences that celebrate the beauty of our coastal sanctuary. Welcome to a place where tranquility and sophistication converge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" class="dark-section">
+  <div class="container">
+    <h2 class="section-title" data-translate="rooms_title">Rooms & Suites</h2>
+    <p class="section-subtitle" data-translate="rooms_subtitle">Discover your perfect coastal retreat</p>
+    <div class="rooms-grid">
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=700&q=90" alt="Deluxe Ocean View" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room1_name">Deluxe Ocean View</h3>
+          <p data-translate="room1_desc">Spacious room with panoramic sea views, king-size bed, and private balcony overlooking the azure waters.</p>
+          <div class="room-price" data-translate="room1_price">€320 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?w=700&q=90" alt="Premium Suite" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room2_name">Premium Suite</h3>
+          <p data-translate="room2_desc">Luxurious suite featuring separate living area, marble bathroom, and exclusive access to our rooftop lounge.</p>
+          <div class="room-price" data-translate="room2_price">€480 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=90" alt="Coastal Garden Room" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room3_name">Coastal Garden Room</h3>
+          <p data-translate="room3_desc">Serene garden-facing room with terrace access, perfect for those seeking tranquility and natural beauty.</p>
+          <div class="room-price" data-translate="room3_price">€260 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=90" alt="Presidential Suite" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room4_name">Presidential Suite</h3>
+          <p data-translate="room4_desc">Ultimate luxury with private infinity pool, butler service, and breathtaking 180-degree ocean panorama.</p>
+          <div class="room-price" data-translate="room4_price">€850 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1631049552240-59c37f38802b?w=700&q=90" alt="Honeymoon Suite" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room5_name">Honeymoon Suite</h3>
+          <p data-translate="room5_desc">Romantic retreat with ocean-facing jacuzzi, champagne lounge, and candlelit dinner setup on private terrace.</p>
+          <div class="room-price" data-translate="room5_price">€520 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+      <div class="room-card fade-in">
+        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=700&q=90" alt="Family Villa" class="room-image">
+        <div class="room-content">
+          <h3 data-translate="room6_name">Family Villa</h3>
+          <p data-translate="room6_desc">Spacious two-bedroom villa with connecting rooms, children's play area, and direct beach access.</p>
+          <div class="room-price" data-translate="room6_price">€680 / night</div>
+          <a href="#booking" class="room-btn" data-translate="room_btn">Reserve</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="amenities" class="light-section">
+  <div class="container">
+    <h2 class="section-title" data-translate="amenities_title">Hotel Amenities</h2>
+    <p class="section-subtitle" data-translate="amenities_subtitle">Everything you need for a perfect stay</p>
+    <div class="amenities-grid">
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h4l3 9 4-18 3 9h4"></path>
+        </svg>
+        <h4 data-translate="amenity1">Infinity Pool</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m-4.2 4.2l-4.2 4.2m13.2.2l-4.2-4.2m-4.2-4.2L1 5"></path>
+        </svg>
+        <h4 data-translate="amenity2">Luxury Spa</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+          <path d="M6 1v3M10 1v3M14 1v3"></path>
+        </svg>
+        <h4 data-translate="amenity3">Fine Dining</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+        </svg>
+        <h4 data-translate="amenity4">Ocean View</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <circle cx="12" cy="20" r="1"></circle>
+        </svg>
+        <h4 data-translate="amenity5">High-Speed Wi-Fi</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <h4 data-translate="amenity6">Concierge Service</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <ellipse cx="12" cy="18" rx="3" ry="2"></ellipse>
+          <ellipse cx="7" cy="8" rx="2" ry="1.5"></ellipse>
+          <ellipse cx="17" cy="8" rx="2" ry="1.5"></ellipse>
+          <ellipse cx="5" cy="13" rx="1.5" ry="1"></ellipse>
+          <ellipse cx="19" cy="13" rx="1.5" ry="1"></ellipse>
+          <path d="M12 14c-2 0-3.5 1-3.5 2.5s1.5 2.5 3.5 2.5 3.5-1 3.5-2.5-1.5-2.5-3.5-2.5z"></path>
+        </svg>
+        <h4 data-translate="amenity7">Pets Allowed</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6.5 6.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"></path>
+          <path d="M17.5 6.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"></path>
+          <path d="M3 15h3m12 0h3"></path>
+          <rect x="6" y="10" width="12" height="10" rx="2"></rect>
+          <path d="M9 16h6M9 19h6"></path>
+        </svg>
+        <h4 data-translate="amenity8">Fitness Center</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 20l5-5 5 5"></path>
+          <path d="M7 12l5-5 5 5"></path>
+          <path d="M12 3v14"></path>
+        </svg>
+        <h4 data-translate="amenity9">Beach Access</h4>
+      </div>
+      <div class="amenity-item fade-in">
+        <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          <circle cx="12" cy="16" r="1"></circle>
+        </svg>
+        <h4 data-translate="amenity10">Valet Parking</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="dark-section">
+  <div class="container">
+    <h2 class="section-title" data-translate="gallery_title">Gallery</h2>
+    <p class="section-subtitle" data-translate="gallery_subtitle">Explore our stunning coastal paradise</p>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=700&q=90" alt="Hotel Exterior">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=700&q=90" alt="Luxury Bedroom Detail">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&q=90" alt="Pool Area">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=700&q=90" alt="Fine Dining">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=90" alt="Spa Treatment">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=90" alt="Beach View">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=700&q=90" alt="Spa Wellness">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=700&q=90" alt="Cocktail Bar">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=700&q=90" alt="Lounge">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <h2 class="section-title" data-translate="testimonials_title">Guest Experiences</h2>
+    <p class="section-subtitle" data-translate="testimonials_subtitle">What our guests say about Azure Haven</p>
+    <div class="testimonial-slider">
+      <div class="testimonial-item active">
+        <p class="testimonial-text" data-translate="testimonial1_text">An absolutely magical experience. The attention to detail and the serene atmosphere made our anniversary unforgettable. We will definitely return.</p>
+        <p class="testimonial-author" data-translate="testimonial1_author">— Sarah & Michael, London</p>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-text" data-translate="testimonial2_text">From the moment we arrived, we felt like royalty. The ocean views, impeccable service, and exquisite dining exceeded all expectations.</p>
+        <p class="testimonial-author" data-translate="testimonial2_author">— Isabella Martinez, Barcelona</p>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-text" data-translate="testimonial3_text">The perfect blend of luxury and tranquility. The spa treatments were divine, and waking up to the sound of waves was pure bliss.</p>
+        <p class="testimonial-author" data-translate="testimonial3_author">— Thomas Weber, Munich</p>
+      </div>
+    </div>
+    <div class="testimonial-dots">
+      <span class="dot active" onclick="showTestimonial(0)"></span>
+      <span class="dot" onclick="showTestimonial(1)"></span>
+      <span class="dot" onclick="showTestimonial(2)"></span>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="booking">
+  <div class="container">
+    <h2 class="section-title" data-translate="booking_title">Book Your Stay</h2>
+    <p class="section-subtitle" data-translate="booking_subtitle">Reserve your perfect escape</p>
+    <div class="booking-content">
+      <div class="booking-form">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label data-translate="form_name">Full Name</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label data-translate="form_email">Email Address</label>
+            <input type="email" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-translate="form_checkin">Check-in Date</label>
+              <input type="date" required>
+            </div>
+            <div class="form-group">
+              <label data-translate="form_checkout">Check-out Date</label>
+              <input type="date" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-translate="form_guests">Number of Guests</label>
+            <select required>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5+">5+ Guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-translate="form_message">Special Requests</label>
+            <textarea></textarea>
+          </div>
+          <button type="submit" class="submit-btn" data-translate="form_submit">Submit Reservation</button>
+          <div class="success-message" id="successMessage" data-translate="form_success">Thank you! Your reservation request has been received. We will contact you shortly to confirm your booking.</div>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4 data-translate="contact_address_title">Address</h4>
+          <p data-translate="contact_address">123 Coastal Boulevard<br>Mediterranean Bay, MB 12345</p>
+        </div>
+        <div class="contact-item">
+          <h4 data-translate="contact_phone_title">Phone</h4>
+          <p>+1 (555) 123-4567</p>
+        </div>
+        <div class="contact-item">
+          <h4 data-translate="contact_email_title">Email</h4>
+          <p>reservations@azurehaven.com</p>
+        </div>
+        <div class="contact-item">
+          <h4 data-translate="contact_hours_title">Reception Hours</h4>
+          <p data-translate="contact_hours">24/7 Available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">Azure Haven</div>
+        <p class="footer-text" data-translate="footer_text">Experience the perfect blend of luxury and tranquility at our coastal sanctuary. Your unforgettable escape awaits.</p>
+        <div class="social-links">
+          <a href="#">f</a>
+          <a href="#">i</a>
+          <a href="#">t</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-translate="footer_quick_title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about" data-translate="nav_about">About</a></li>
+          <li><a href="#rooms" data-translate="nav_rooms">Rooms</a></li>
+          <li><a href="#amenities" data-translate="nav_amenities">Amenities</a></li>
+          <li><a href="#gallery" data-translate="nav_gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 data-translate="footer_services_title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-translate="footer_spa">Spa & Wellness</a></li>
+          <li><a href="#" data-translate="footer_dining">Dining</a></li>
+          <li><a href="#" data-translate="footer_events">Events</a></li>
+          <li><a href="#" data-translate="footer_concierge">Concierge</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 data-translate="footer_contact_title">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="#booking" data-translate="footer_reservations">Reservations</a></li>
+          <li><a href="#" data-translate="footer_careers">Careers</a></li>
+          <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
+          <li><a href="#" data-translate="footer_terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-translate="footer_copyright">&copy; 2025 Azure Haven Hotel. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var translations = {
+  en: {
+    nav_about: 'About',
+    nav_rooms: 'Rooms',
+    nav_amenities: 'Amenities',
+    nav_gallery: 'Gallery',
+    nav_testimonials: 'Testimonials',
+    nav_booking: 'Booking',
+    hero_title: 'Experience Tranquility by the Sea',
+    hero_subtitle: 'Your luxury escape awaits at Azure Haven Hotel',
+    hero_cta: 'Book Your Stay',
+    about_title: 'About Azure Haven',
+    about_subtitle: 'Where coastal elegance meets Mediterranean warmth',
+    about_text1: 'Nestled along the pristine coastline, Azure Haven Hotel offers an unparalleled escape where luxury meets the gentle rhythm of the sea. Our commitment to excellence is woven into every detail, from the carefully curated interiors to the personalized service that anticipates your every need.',
+    about_text2: 'Each space within our hotel is designed to evoke a sense of calm and refinement, blending modern coastal aesthetics with timeless Mediterranean warmth. Whether you are watching the sunrise from your private balcony or unwinding in our world-class spa, every moment at Azure Haven is crafted to rejuvenate your spirit.',
+    about_text3: 'Our dedicated team ensures that your stay transcends expectations, offering bespoke experiences that celebrate the beauty of our coastal sanctuary. Welcome to a place where tranquility and sophistication converge.',
+    rooms_title: 'Rooms & Suites',
+    rooms_subtitle: 'Discover your perfect coastal retreat',
+    room1_name: 'Deluxe Ocean View',
+    room1_desc: 'Spacious room with panoramic sea views, king-size bed, and private balcony overlooking the azure waters.',
+    room1_price: '€320 / night',
+    room2_name: 'Premium Suite',
+    room2_desc: 'Luxurious suite featuring separate living area, marble bathroom, and exclusive access to our rooftop lounge.',
+    room2_price: '€480 / night',
+    room3_name: 'Coastal Garden Room',
+    room3_desc: 'Serene garden-facing room with terrace access, perfect for those seeking tranquility and natural beauty.',
+    room3_price: '€260 / night',
+    room4_name: 'Presidential Suite',
+    room4_desc: 'Ultimate luxury with private infinity pool, butler service, and breathtaking 180-degree ocean panorama.',
+    room4_price: '€850 / night',
+    room5_name: 'Honeymoon Suite',
+    room5_desc: 'Romantic retreat with ocean-facing jacuzzi, champagne lounge, and candlelit dinner setup on private terrace.',
+    room5_price: '€520 / night',
+    room6_name: 'Family Villa',
+    room6_desc: 'Spacious two-bedroom villa with connecting rooms, children\'s play area, and direct beach access.',
+    room6_price: '€680 / night',
+    room_btn: 'Reserve',
+    amenities_title: 'Hotel Amenities',
+    amenities_subtitle: 'Everything you need for a perfect stay',
+    amenity1: 'Infinity Pool',
+    amenity2: 'Luxury Spa',
+    amenity3: 'Fine Dining',
+    amenity4: 'Ocean View',
+    amenity5: 'High-Speed Wi-Fi',
+    amenity6: 'Concierge Service',
+    amenity7: 'Pets Allowed',
+    amenity8: 'Fitness Center',
+    amenity9: 'Beach Access',
+    amenity10: 'Valet Parking',
+    gallery_title: 'Gallery',
+    gallery_subtitle: 'Explore our stunning coastal paradise',
+    testimonials_title: 'Guest Experiences',
+    testimonials_subtitle: 'What our guests say about Azure Haven',
+    testimonial1_text: 'An absolutely magical experience. The attention to detail and the serene atmosphere made our anniversary unforgettable. We will definitely return.',
+    testimonial1_author: '— Sarah & Michael, London',
+    testimonial2_text: 'From the moment we arrived, we felt like royalty. The ocean views, impeccable service, and exquisite dining exceeded all expectations.',
+    testimonial2_author: '— Isabella Martinez, Barcelona',
+    testimonial3_text: 'The perfect blend of luxury and tranquility. The spa treatments were divine, and waking up to the sound of waves was pure bliss.',
+    testimonial3_author: '— Thomas Weber, Munich',
+    booking_title: 'Book Your Stay',
+    booking_subtitle: 'Reserve your perfect escape',
+    form_name: 'Full Name',
+    form_email: 'Email Address',
+    form_checkin: 'Check-in Date',
+    form_checkout: 'Check-out Date',
+    form_guests: 'Number of Guests',
+    form_message: 'Special Requests',
+    form_submit: 'Submit Reservation',
+    form_success: 'Thank you! Your reservation request has been received. We will contact you shortly to confirm your booking.',
+    contact_address_title: 'Address',
+    contact_address: '123 Coastal Boulevard<br>Mediterranean Bay, MB 12345',
+    contact_phone_title: 'Phone',
+    contact_email_title: 'Email',
+    contact_hours_title: 'Reception Hours',
+    contact_hours: '24/7 Available',
+    footer_text: 'Experience the perfect blend of luxury and tranquility at our coastal sanctuary. Your unforgettable escape awaits.',
+    footer_quick_title: 'Quick Links',
+    footer_services_title: 'Services',
+    footer_spa: 'Spa & Wellness',
+    footer_dining: 'Dining',
+    footer_events: 'Events',
+    footer_concierge: 'Concierge',
+    footer_contact_title: 'Contact',
+    footer_reservations: 'Reservations',
+    footer_careers: 'Careers',
+    footer_privacy: 'Privacy Policy',
+    footer_terms: 'Terms & Conditions',
+    footer_copyright: '© 2025 Azure Haven Hotel. All rights reserved.'
+  },
+  de: {
+    nav_about: 'Über uns',
+    nav_rooms: 'Zimmer',
+    nav_amenities: 'Annehmlichkeiten',
+    nav_gallery: 'Galerie',
+    nav_testimonials: 'Bewertungen',
+    nav_booking: 'Buchung',
+    hero_title: 'Erleben Sie Ruhe am Meer',
+    hero_subtitle: 'Ihr luxuriöser Rückzugsort erwartet Sie',
+    hero_cta: 'Jetzt Buchen',
+    about_title: 'Über Azure Haven',
+    about_subtitle: 'Wo Küsteneleganz auf mediterrane Wärme trifft',
+    rooms_title: 'Zimmer & Suiten',
+    rooms_subtitle: 'Entdecken Sie Ihren perfekten Rückzugsort',
+    room1_name: 'Deluxe Meerblick',
+    room2_name: 'Premium Suite',
+    room3_name: 'Küstengarten Zimmer',
+    room4_name: 'Präsidenten Suite',
+    room5_name: 'Hochzeitsreise Suite',
+    room6_name: 'Familien Villa',
+    room_btn: 'Reservieren',
+    amenities_title: 'Hotel Annehmlichkeiten',
+    amenity1: 'Infinity Pool',
+    amenity2: 'Luxus Spa',
+    amenity3: 'Feine Küche',
+    amenity4: 'Meerblick',
+    amenity5: 'High-Speed WLAN',
+    amenity6: 'Concierge Service',
+    amenity7: 'Haustiere Erlaubt',
+    amenity8: 'Fitnesscenter',
+    amenity9: 'Strandzugang',
+    amenity10: 'Valet Parking'
+  },
+  es: {
+    nav_about: 'Acerca de',
+    nav_rooms: 'Habitaciones',
+    nav_amenities: 'Servicios',
+    nav_gallery: 'Galería',
+    nav_testimonials: 'Testimonios',
+    nav_booking: 'Reservar',
+    hero_title: 'Experimenta la Tranquilidad junto al Mar',
+    hero_subtitle: 'Tu escape de lujo te espera',
+    hero_cta: 'Reserva tu Estancia',
+    about_title: 'Sobre Azure Haven',
+    about_subtitle: 'Donde la elegancia costera se encuentra con la calidez mediterránea',
+    rooms_title: 'Habitaciones y Suites',
+    rooms_subtitle: 'Descubre tu refugio costero perfecto',
+    room1_name: 'Deluxe Vista al Mar',
+    room2_name: 'Suite Premium',
+    room3_name: 'Habitación Jardín Costero',
+    room4_name: 'Suite Presidencial',
+    room5_name: 'Suite Luna de Miel',
+    room6_name: 'Villa Familiar',
+    room_btn: 'Reservar',
+    amenities_title: 'Servicios del Hotel',
+    amenity1: 'Piscina Infinita',
+    amenity2: 'Spa de Lujo',
+    amenity3: 'Gastronomía Fina',
+    amenity4: 'Vista al Océano',
+    amenity5: 'Wi-Fi de Alta Velocidad',
+    amenity6: 'Servicio de Conserjería',
+    amenity7: 'Mascotas Permitidas',
+    amenity8: 'Centro de Fitness',
+    amenity9: 'Acceso a la Playa',
+    amenity10: 'Aparcacoches'
+  },
+  bg: {
+    nav_about: 'За нас',
+    nav_rooms: 'Стаи',
+    nav_amenities: 'Удобства',
+    nav_gallery: 'Галерия',
+    nav_testimonials: 'Отзиви',
+    nav_booking: 'Резервация',
+    hero_title: 'Изживейте Спокойствието край Морето',
+    hero_subtitle: 'Вашето луксозно бягство ви очаква',
+    hero_cta: 'Резервирайте престоя си',
+    about_title: 'За Azure Haven',
+    about_subtitle: 'Където крайбрежната елегантност среща средиземноморската топлина',
+    rooms_title: 'Стаи и Апартаменти',
+    rooms_subtitle: 'Открийте вашето перфектно крайбрежно убежище',
+    room1_name: 'Делукс с изглед към океана',
+    room2_name: 'Премиум апартамент',
+    room3_name: 'Стая с градина',
+    room4_name: 'Президентски апартамент',
+    room5_name: 'Апартамент за младоженци',
+    room6_name: 'Семейна вила',
+    room_btn: 'Резервирай',
+    amenities_title: 'Хотелски удобства',
+    amenity1: 'Инфинити басейн',
+    amenity2: 'Луксозен спа',
+    amenity3: 'Изискана кухня',
+    amenity4: 'Изглед към океана',
+    amenity5: 'Високоскоростен Wi-Fi',
+    amenity6: 'Консиерж услуга',
+    amenity7: 'Домашни любимци разрешени',
+    amenity8: 'Фитнес център',
+    amenity9: 'Достъп до плажа',
+    amenity10: 'Вале паркинг'
+  }
+};
+
+var currentLang = 'en';
+
+function changeLanguage(lang) {
+  currentLang = lang;
+  var buttons = document.querySelectorAll('.language-selector button');
+  buttons.forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  document.getElementById('lang-' + lang).classList.add('active');
+  
+  var elements = document.querySelectorAll('[data-translate]');
+  elements.forEach(function(element) {
+    var key = element.getAttribute('data-translate');
+    if (translations[lang] && translations[lang][key]) {
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.placeholder = translations[lang][key];
+      } else {
+        element.innerHTML = translations[lang][key];
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var nav = document.querySelector('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(10, 25, 41, 0.98)';
+      nav.style.boxShadow = '0 4px 32px rgba(0, 0, 0, 0.5)';
+    } else {
+      nav.style.background = 'rgba(10, 25, 41, 0.95)';
+      nav.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.3)';
+    }
+  });
+
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  anchors.forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href');
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.innerWidth <= 768) {
+          document.getElementById('navLinks').classList.remove('active');
+        }
+      }
+    });
+  });
+
+  var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  var navLinks = document.getElementById('navLinks');
+  mobileMenuBtn.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+  });
+
+  var observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  var fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach(function(el) {
+    observer.observe(el);
+  });
+
+  var currentTestimonial = 0;
+  var testimonials = document.querySelectorAll('.testimonial-item');
+  var dots = document.querySelectorAll('.dot');
+
+  function showTestimonial(index) {
+    testimonials.forEach(function(t) {
+      t.classList.remove('active');
+    });
+    dots.forEach(function(d) {
+      d.classList.remove('active');
+    });
+    testimonials[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentTestimonial = index;
+  }
+
+  window.showTestimonial = showTestimonial;
+
+  setInterval(function() {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  }, 5000);
+
+  var bookingForm = document.getElementById('bookingForm');
+  var successMessage = document.getElementById('successMessage');
+
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    successMessage.classList.add('show');
+    bookingForm.reset();
+    setTimeout(function() {
+      successMessage.classList.remove('show');
+    }, 5000);
+  });
+});
+</script>
+
+</body>
+</html>
